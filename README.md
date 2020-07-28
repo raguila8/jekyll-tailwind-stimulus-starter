@@ -29,15 +29,17 @@ managed by Webpack.
 ## Usage
 
 ### Development
-`foreman start`
+`rake serve`
 
-### Build for production
-`yarn build`
+### Build
+`rake build`
 
-When running  `foreman start` both the web and webpack instances will be started.
+When running `rake serve` both the web and webpack instances will be started with foreman. Behind the scene foreman will running `bundle exec jekyll serve` and `cross-env NODE_ENV=development webpack --watch --config webpack.dev.js`. Webpack manages the assets for development with the `webpack.dev.js` config file which has a faster build process convenient for development.
 
-Webpack has a development config file, `webpack.dev.js` that has a faster build process convenient for development whereas the production config file, `webpack.prod.js` optimizes for production by minimizing the assets and using cache busting. 
+When running `rake build` webpack bundles our assets and jekyll builds the site for production.  Webpack manages the assets for production with the `webpack.prod.js` config file which optimizes our build by using cache busting, minimizing the assets, and tree shaking unused styles with Tailwind's `purge` option.
+
+## Process
 
 When Webpack runs, it compiles all of the assets into the `/assets` directory
 and then generates and injects the appropriate
-`<link>` and `<script>` tags into it `_includes/packs.html`.
+`<link>` and `<script>` tags into the `_includes/packs.html` partial.
