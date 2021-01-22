@@ -2,12 +2,5 @@
 /_site
 /node_modules
 /.jekyll-metadata
-
-# ignore all files in assets but include the empty directory
-/assets/*.css
-/assets/*.js
-/assets/*.sass
-/assets/images
-
 yarn-error.log
 .jekyll-cache/
