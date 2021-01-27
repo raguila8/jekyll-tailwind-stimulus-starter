@@ -4,3 +4,6 @@
 /.jekyll-metadata
 yarn-error.log
 .jekyll-cache/
+
+# ignore files in assets directory
+/assets/*
